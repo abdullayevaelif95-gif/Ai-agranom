@@ -560,7 +560,6 @@
 </head>
 <body>
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="logo">
     <div class="logo-title">АгроИИ</div>
@@ -583,18 +582,15 @@
       <span class="nav-icon">⚙️</span> Настройки
     </div>
   </nav>
-  <div class="sidebar-footer">Демо-версия v0.1<br>© АгроИИ 2025</div>
+  <div class="sidebar-footer">Демо-версия v0.1<br>© АгроИИ 2026</div>
 </aside>
 
-<!-- MAIN -->
 <div class="main">
-  <!-- TOP BAR -->
   <header class="topbar">
     <div class="topbar-title" id="pageTitle">Мои грядки</div>
     <div class="topbar-meta" id="pageDate"></div>
   </header>
 
-  <!-- WEATHER STRIP -->
   <div class="weather-strip" id="weatherStrip">
     <div class="weather-item">
       <div class="weather-label">Температура</div>
@@ -623,11 +619,9 @@
     </div>
   </div>
 
-  <!-- CONTENT -->
   <div class="content-wrap">
     <div class="content">
 
-      <!-- SECTION: BEDS -->
       <div id="section-beds">
         <div class="cards-row">
           <div class="card">
@@ -671,7 +665,6 @@
         </div>
       </div>
 
-      <!-- SECTION: SCHEDULE -->
       <div id="section-schedule" style="display:none">
         <div class="section-header">
           <div class="section-title">Расписание полива на неделю</div>
@@ -692,7 +685,6 @@
         <p style="font-size:13px;color:var(--text-muted);margin-top:8px">💡 Расписание генерируется ИИ агрономом на основе данных спутника и погоды. Спросите агронома в чате для уточнений.</p>
       </div>
 
-      <!-- SECTION: ANALYTICS -->
       <div id="section-analytics" style="display:none">
         <div class="section-header"><div class="section-title">Аналитика участка</div></div>
         <div class="cards-row">
@@ -703,7 +695,6 @@
         <p style="font-size:13px;color:var(--text-muted)">Подробные графики появятся в полной версии. Спросите ИИ агронома о состоянии любой грядки.</p>
       </div>
 
-      <!-- SECTION: MAP -->
       <div id="section-map" style="display:none">
         <div class="section-header"><div class="section-title">Карта участка</div></div>
         <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:60px;text-align:center;color:var(--text-muted)">
@@ -712,7 +703,6 @@
         </div>
       </div>
 
-      <!-- SECTION: SETTINGS -->
       <div id="section-settings" style="display:none">
         <div class="section-header"><div class="section-title">Настройки</div></div>
         <div class="table-wrap" style="padding:24px">
@@ -727,7 +717,6 @@
 
     </div>
 
-    <!-- CHAT PANEL -->
     <aside class="chat-panel">
       <div class="chat-header">
         <div class="chat-avatar">🌿</div>
@@ -737,7 +726,6 @@
         </div>
       </div>
 
-      <!-- API KEY INPUT -->
       <div class="api-setup" id="apiSetup">
         <p>🔑 Вставьте ваш <b>Groq API ключ</b> чтобы активировать ИИ агронома.<br>
         Получить: <a href="https://console.groq.com/keys" target="_blank" style="color:var(--green-mid)">console.groq.com/keys</a></p>
@@ -767,7 +755,6 @@
   </div>
 </div>
 
-<!-- CITY SETUP OVERLAY -->
 <div class="city-overlay" id="cityOverlay">
   <div class="city-card">
     <div class="city-icon">🌍</div>
@@ -783,7 +770,6 @@
   </div>
 </div>
 
-<!-- ADD BED MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <h3>Добавить грядку</h3>
@@ -1095,11 +1081,13 @@ async function sendMessage() {
   isTyping = true;
   toggleTyping(true);
 
+  const weatherText = weatherData && weatherData.temp ? JSON.stringify(weatherData) : "данные загружаются";
+
   // Контекст системы, чтобы ИИ понимал, какие грядки есть у пользователя
   const systemPrompt = `Ты профессиональный ИИ-агроном. Помогай пользователю ухаживать за его огородом. 
 Вот текущие данные его грядок: ${JSON.stringify(beds)}.
-Текущая погода в городе: ${JSON.stringify(weatherData)}.
-Отвечай кратко, экспертно и дружелюбно, используй смайлики растений.`;
+Текущая погода в городе: ${weatherText}.
+Отвечай кратко, экспертно и дружелюбно на русском языке, используй смайлики растений.`;
 
   try {
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -1109,7 +1097,7 @@ async function sendMessage() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama3-8b-8192', // Используем стабильную быструю модель Groq
+        model: 'llama-3.1-8b-instant', 
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: text }
@@ -1125,8 +1113,10 @@ async function sendMessage() {
     if (data.choices && data.choices[0]) {
       const aiResponse = data.choices[0].message.content;
       appendMessage('ai', aiResponse);
+    } else if (data.error) {
+      appendMessage('ai', `❌ Ошибка от Groq: ${data.error.message}`);
     } else {
-      appendMessage('ai', '❌ Произошла ошибка при обработке ответа от Groq. Проверьте ваш лимит токенов.');
+      appendMessage('ai', '❌ Неизвестная ошибка при обработке ответа. Попробуйте еще раз.');
     }
   } catch (error) {
     toggleTyping(false);
