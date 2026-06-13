@@ -1114,7 +1114,17 @@ async function sendMessage() {
       const aiResponse = data.choices[0].message.content;
       appendMessage('ai', aiResponse);
     } else if (data.error) {
+      // Если ключ не подошел или лимиты исчерпаны, пишем ошибку
       appendMessage('ai', `❌ Ошибка от Groq: ${data.error.message}`);
+      
+      // И самое главное: стираем плохой ключ и через 3 секунды возвращаем форму ввода!
+      localStorage.removeItem('agroai_groq_key');
+      apiKey = '';
+      setTimeout(() => {
+        document.getElementById('apiSetup').style.display = 'block';
+        appendMessage('ai', '🔄 Я сбросил нерабочий ключ. Пожалуйста, введите новый ключ выше.');
+      }, 3000);
+
     } else {
       appendMessage('ai', '❌ Неизвестная ошибка при обработке ответа. Попробуйте еще раз.');
     }
