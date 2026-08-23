@@ -16,16 +16,18 @@
     --sky: #e8f4f0;
     --white: #f9fbfa;
     --text: #1a2e22;
-    --text-muted: #5a7a68;
+    --text-muted: #4a6a58;
     --border: #c8e6d4;
     --sidebar-w: 230px;
     --chat-w: 360px;
+    --radius: 0px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: 'Inter', sans-serif;
+    font-size: 16px;
     background: var(--sky);
     color: var(--text);
     display: flex;
@@ -36,163 +38,164 @@
   /* ── SIDEBAR ── */
   .sidebar { width: var(--sidebar-w); background: var(--green-dark); display: flex; flex-direction: column; flex-shrink: 0; }
   .logo { padding: 24px 20px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .logo-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--green-light); letter-spacing: -0.3px; }
-  .logo-sub { font-size: 11px; color: var(--green-accent); margin-top: 3px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .logo-title { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--green-light); letter-spacing: -0.3px; }
+  .logo-sub { font-size: 12px; color: var(--green-accent); margin-top: 3px; letter-spacing: 0.5px; text-transform: uppercase; }
   .nav { padding: 16px 12px; flex: 1; overflow-y: auto; }
-  .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; cursor: pointer; color: rgba(255,255,255,0.55); font-size: 14px; font-weight: 500; transition: all 0.15s; margin-bottom: 2px; }
+  .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: var(--radius); cursor: pointer; color: rgba(255,255,255,0.55); font-size: 16px; font-weight: 500; transition: all 0.15s; margin-bottom: 2px; }
   .nav-item:hover { background: rgba(255,255,255,0.07); color: #fff; }
   .nav-item.active { background: var(--green-mid); color: #fff; }
-  .nav-icon { font-size: 16px; width: 20px; text-align: center; flex-shrink:0; }
+  .nav-icon { font-size: 18px; width: 20px; text-align: center; flex-shrink:0; }
   .nav-item.has-sub { position: relative; }
-  .nav-arrow { margin-left: auto; font-size: 11px; transition: transform 0.2s; }
+  .nav-arrow { margin-left: auto; font-size: 12px; transition: transform 0.2s; }
   .nav-arrow.open { transform: rotate(90deg); }
   .nav-sub { display: none; padding-left: 12px; margin-top: 2px; }
   .nav-sub.open { display: block; }
-  .nav-sub-item { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 6px; cursor: pointer; color: rgba(255,255,255,0.45); font-size: 13px; transition: all 0.15s; margin-bottom: 1px; }
+  .nav-sub-item { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: var(--radius); cursor: pointer; color: rgba(255,255,255,0.45); font-size: 15px; transition: all 0.15s; margin-bottom: 1px; }
   .nav-sub-item:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.8); }
   .nav-sub-item.active { background: rgba(82,183,136,0.2); color: var(--green-accent); }
-  .sidebar-footer { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 11px; color: rgba(255,255,255,0.3); }
+  .sidebar-footer { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: rgba(255,255,255,0.3); }
 
   /* ── MAIN ── */
   .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
-  .topbar { background: #fff; border-bottom: 1px solid var(--border); padding: 0 28px; height: 58px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
-  .topbar-title { font-size: 16px; font-weight: 600; }
-  .topbar-meta { font-size: 13px; color: var(--text-muted); }
+  .topbar { background: #fff; border-bottom: 1px solid var(--border); padding: 0 28px; height: 62px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .topbar-title { font-size: 18px; font-weight: 600; }
+  .topbar-meta { font-size: 14px; color: var(--text-muted); }
   .weather-strip { background: linear-gradient(135deg, var(--green-mid), var(--green-dark)); color: #fff; padding: 14px 28px; display: flex; gap: 32px; align-items: center; flex-shrink: 0; flex-wrap: wrap; }
   .weather-item { display: flex; flex-direction: column; gap: 2px; }
-  .weather-label { font-size: 10px; opacity: 0.65; text-transform: uppercase; letter-spacing: 0.5px; }
-  .weather-val { font-size: 16px; font-weight: 600; }
-  .weather-badge { margin-left: auto; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 5px 14px; font-size: 12px; display: flex; align-items: center; gap: 6px; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-light); animation: pulse 2s infinite; }
+  .weather-label { font-size: 11px; opacity: 0.65; text-transform: uppercase; letter-spacing: 0.5px; }
+  .weather-val { font-size: 18px; font-weight: 600; }
+  .weather-badge { margin-left: auto; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 5px 14px; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
   .content-wrap { display: flex; flex: 1; overflow: hidden; }
-  .content { flex: 1; overflow-y: auto; padding: 24px 28px; }
-  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-  .section-title { font-size: 15px; font-weight: 600; }
-  .btn { padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.15s; }
+  .content { flex: 1; overflow-y: auto; padding: 28px 32px; }
+  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .section-title { font-size: 17px; font-weight: 600; }
+  .btn { padding: 10px 18px; border-radius: var(--radius); border: none; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.15s; }
   .btn-primary { background: var(--green-mid); color: #fff; }
   .btn-primary:hover { background: var(--green-dark); }
   .btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
   .btn-ghost:hover { background: var(--sky); }
 
   /* ── TABLE ── */
-  .table-wrap { background: #fff; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px; }
+  .table-wrap { background: #fff; border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px; }
   table { width: 100%; border-collapse: collapse; }
   thead { background: var(--sky); }
-  th { padding: 11px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); text-align: left; border-bottom: 1px solid var(--border); }
-  td { padding: 13px 16px; font-size: 14px; border-bottom: 1px solid #f0f8f4; vertical-align: middle; }
+  th { padding: 12px 16px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); text-align: left; border-bottom: 1px solid var(--border); }
+  td { padding: 14px 16px; font-size: 15px; border-bottom: 1px solid #f0f8f4; vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #f7fcf9; }
-  .bed-num { font-weight: 700; color: var(--green-mid); font-size: 15px; }
-  .crop-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--sky); border-radius: 20px; padding: 4px 10px; font-size: 13px; }
+  .bed-num { font-weight: 700; color: var(--green-mid); font-size: 17px; }
+  .crop-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--sky); border-radius: 20px; padding: 4px 10px; font-size: 14px; }
   .moisture-bar { display: flex; align-items: center; gap: 10px; }
   .bar-track { width: 80px; height: 6px; background: #e0ede6; border-radius: 3px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 3px; background: var(--green-accent); transition: width 0.4s; }
   .bar-fill.low { background: #e07a5f; }
   .bar-fill.high { background: #3d9970; }
-  .status-badge { padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+  .status-badge { padding: 3px 10px; border-radius: 20px; font-size: 13px; font-weight: 500; }
   .status-ok { background: #d8f3dc; color: #2d6a4f; }
   .status-warn { background: #fde8d8; color: #b5451b; }
   .status-great { background: #caf0f8; color: #0077b6; }
-  .action-btn { background: none; border: none; cursor: pointer; color: var(--green-mid); font-size: 12px; font-weight: 500; text-decoration: underline; padding: 0; }
+  .action-btn { background: none; border: none; cursor: pointer; color: var(--green-mid); font-size: 13px; font-weight: 500; text-decoration: underline; padding: 0; }
   .action-btn:hover { color: var(--green-dark); }
 
   /* ── CARDS ROW ── */
   .cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
-  .card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
-  .card-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 8px; }
-  .card-value { font-size: 26px; font-weight: 700; color: var(--green-dark); }
-  .card-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .card { background: #fff; border: 1px solid var(--border); padding: 20px 22px; }
+  .card-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 8px; }
+  .card-value { font-size: 28px; font-weight: 700; color: var(--green-dark); }
+  .card-sub { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
 
   /* ── CHAT ── */
   .chat-panel { width: var(--chat-w); background: #fff; border-left: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
   .chat-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
-  .chat-avatar { width: 36px; height: 36px; background: linear-gradient(135deg, var(--green-mid), var(--green-accent)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-  .chat-name { font-size: 14px; font-weight: 600; }
-  .chat-status { font-size: 11px; color: var(--green-accent); }
-  .api-setup { margin: 16px; background: #fff8e6; border: 1px solid #f0d080; border-radius: 10px; padding: 14px; }
-  .api-setup p { font-size: 12px; color: #7a6020; margin-bottom: 8px; line-height: 1.5; }
-  .api-input { width: 100%; padding: 8px 10px; border: 1px solid #e0c060; border-radius: 6px; font-size: 12px; font-family: monospace; margin-bottom: 8px; background: #fffdf5; }
+  .chat-avatar { width: 36px; height: 36px; background: linear-gradient(135deg, var(--green-mid), var(--green-accent)); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; color: #fff; }
+  .chat-name { font-size: 16px; font-weight: 600; }
+  .chat-status { font-size: 12px; color: var(--green-accent); }
+  .api-setup { margin: 16px; background: #fff8e6; border: 1px solid #f0d080; padding: 14px; }
+  .api-setup p { font-size: 13px; color: #7a6020; margin-bottom: 8px; line-height: 1.5; }
+  .api-input { width: 100%; padding: 8px 10px; border: 1px solid #e0c060; border-radius: var(--radius); font-size: 13px; font-family: monospace; margin-bottom: 8px; background: #fffdf5; }
   .api-input:focus { outline: none; border-color: var(--green-mid); }
   .chat-messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
   .msg { display: flex; gap: 8px; max-width: 100%; }
   .msg.user { flex-direction: row-reverse; }
-  .msg-bubble { padding: 10px 14px; border-radius: 14px; font-size: 13px; line-height: 1.55; max-width: 85%; }
+  .msg-bubble { padding: 10px 14px; border-radius: 14px; font-size: 15px; line-height: 1.55; max-width: 85%; }
   .msg.ai .msg-bubble { background: var(--sky); border-bottom-left-radius: 4px; }
   .msg.user .msg-bubble { background: var(--green-mid); color: #fff; border-bottom-right-radius: 4px; }
-  .msg-icon { font-size: 20px; flex-shrink: 0; margin-top: 4px; }
+  .msg-icon { font-size: 20px; flex-shrink: 0; margin-top: 4px; color: var(--green-mid); }
+  .msg.user .msg-icon { color: var(--green-dark); }
   .typing-dots { display: flex; gap: 4px; align-items: center; padding: 12px 14px; background: var(--sky); border-radius: 14px; border-bottom-left-radius: 4px; width: fit-content; }
   .typing-dots span { width: 6px; height: 6px; background: var(--green-mid); border-radius: 50%; animation: bounce 1.2s infinite; }
   .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
   .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
   @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
   .chat-input-area { padding: 14px 16px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
-  .chat-input { flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 22px; font-size: 13px; font-family: 'Inter', sans-serif; resize: none; outline: none; background: var(--sky); transition: border 0.15s; }
+  .chat-input { flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 22px; font-size: 15px; font-family: 'Inter', sans-serif; resize: none; outline: none; background: var(--sky); transition: border 0.15s; }
   .chat-input:focus { border-color: var(--green-accent); }
-  .send-btn { width: 38px; height: 38px; border-radius: 50%; background: var(--green-mid); border: none; cursor: pointer; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.15s; align-self: flex-end; }
+  .send-btn { width: 40px; height: 40px; border-radius: 50%; background: var(--green-mid); border: none; cursor: pointer; color: #fff; font-size: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.15s; align-self: flex-end; }
   .send-btn:hover { background: var(--green-dark); }
   .send-btn:disabled { background: var(--border); cursor: not-allowed; }
   .quick-btns { padding: 0 16px 12px; display: flex; flex-wrap: wrap; gap: 6px; }
-  .quick-btn { background: var(--sky); border: 1px solid var(--border); border-radius: 16px; padding: 5px 12px; font-size: 11px; cursor: pointer; color: var(--text); transition: all 0.15s; }
+  .quick-btn { background: var(--sky); border: 1px solid var(--border); border-radius: 16px; padding: 5px 12px; font-size: 13px; cursor: pointer; color: var(--text); transition: all 0.15s; }
   .quick-btn:hover { background: var(--green-light); border-color: var(--green-accent); }
 
   /* ── MODAL ── */
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
   .modal-overlay.open { display: flex; }
-  .modal { background: #fff; border-radius: 16px; padding: 28px; width: 480px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); max-height: 90vh; overflow-y: auto; }
-  .modal h3 { font-size: 16px; margin-bottom: 18px; }
+  .modal { background: #fff; padding: 28px; width: 520px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); max-height: 90vh; overflow-y: auto; }
+  .modal h3 { font-size: 18px; margin-bottom: 18px; }
   .form-row { margin-bottom: 14px; }
-  .form-label { font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 5px; display: block; }
-  .form-input { width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; font-family: 'Inter', sans-serif; outline: none; background: var(--sky); }
+  .form-label { font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 5px; display: block; }
+  .form-input { width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 15px; font-family: 'Inter', sans-serif; outline: none; background: var(--sky); }
   .form-input:focus { border-color: var(--green-accent); background: #fff; }
   .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
   .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px; }
   .modal-actions { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
   .sowing-toggle { display: flex; gap: 8px; margin-bottom: 10px; }
-  .sowing-tab { flex: 1; padding: 7px; text-align: center; border-radius: 8px; font-size: 12px; font-weight: 500; cursor: pointer; border: 1.5px solid var(--border); background: var(--sky); color: var(--text-muted); transition: all 0.15s; }
+  .sowing-tab { flex: 1; padding: 7px; text-align: center; border-radius: var(--radius); font-size: 13px; font-weight: 500; cursor: pointer; border: 1.5px solid var(--border); background: var(--sky); color: var(--text-muted); transition: all 0.15s; }
   .sowing-tab.active { border-color: var(--green-accent); background: #d8f3dc; color: var(--green-dark); }
   .sowing-panel { display: none; }
   .sowing-panel.active { display: block; }
-  .rec-period-badge { background: #e8f4f0; border: 1px dashed var(--green-accent); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: var(--green-dark); margin-bottom: 10px; line-height: 1.6; }
+  .rec-period-badge { background: #e8f4f0; border: 1px dashed var(--green-accent); border-radius: var(--radius); padding: 10px 14px; font-size: 13px; color: var(--green-dark); margin-bottom: 10px; line-height: 1.6; }
 
   /* ── ONBOARDING ── */
   .onboard-overlay { display: none; position: fixed; inset: 0; background: rgba(10,30,18,0.75); backdrop-filter: blur(6px); z-index: 300; align-items: center; justify-content: center; }
   .onboard-overlay.open { display: flex; }
-  .onboard-card { background: #fff; border-radius: 24px; width: 520px; box-shadow: 0 30px 80px rgba(0,0,0,0.25); overflow: hidden; }
+  .onboard-card { background: #fff; width: 520px; box-shadow: 0 30px 80px rgba(0,0,0,0.25); overflow: hidden; }
   .onboard-steps { display: flex; border-bottom: 1px solid var(--border); }
-  .onboard-step-tab { flex: 1; padding: 12px 6px; text-align: center; font-size: 11px; font-weight: 500; color: var(--text-muted); border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .onboard-step-tab { flex: 1; padding: 12px 6px; text-align: center; font-size: 12px; font-weight: 500; color: var(--text-muted); border-bottom: 2px solid transparent; transition: all 0.2s; }
   .onboard-step-tab.active { color: var(--green-mid); border-color: var(--green-mid); }
   .onboard-step-tab.done { color: var(--green-accent); }
   .onboard-body { padding: 32px 32px 24px; }
-  .onboard-icon { font-size: 44px; margin-bottom: 14px; text-align: center; }
-  .onboard-body h2 { font-family: 'Playfair Display', serif; font-size: 21px; color: var(--green-dark); margin-bottom: 8px; }
-  .onboard-body p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+  .onboard-icon { font-size: 44px; margin-bottom: 14px; text-align: center; color: var(--green-mid); }
+  .onboard-body h2 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--green-dark); margin-bottom: 8px; }
+  .onboard-body p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
   .onboard-page { display: none; }
   .onboard-page.active { display: block; }
   .land-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
-  .land-tab { flex: 1; padding: 12px 10px; border-radius: 12px; border: 2px solid var(--border); text-align: center; cursor: pointer; transition: all 0.15s; font-size: 13px; font-weight: 500; color: var(--text-muted); }
+  .land-tab { flex: 1; padding: 12px 10px; border: 2px solid var(--border); text-align: center; cursor: pointer; transition: all 0.15s; font-size: 14px; font-weight: 500; color: var(--text-muted); }
   .land-tab.active { border-color: var(--green-mid); background: #eaf7f0; color: var(--green-dark); }
   .land-tab .tab-icon { font-size: 24px; display: block; margin-bottom: 6px; }
   .land-input-section { display: none; }
   .land-input-section.active { display: block; }
-  .cadastre-input { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 15px; font-family: 'Inter', sans-serif; outline: none; background: var(--sky); transition: border 0.15s; }
+  .cadastre-input { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius); font-size: 16px; font-family: 'Inter', sans-serif; outline: none; background: var(--sky); transition: border 0.15s; }
   .cadastre-input:focus { border-color: var(--green-accent); background: #fff; }
-  .cadastre-hint { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
-  .map-embed-btn { display: block; width: 100%; padding: 14px; background: var(--sky); border: 2px dashed var(--border); border-radius: 12px; text-align: center; cursor: pointer; color: var(--text-muted); font-size: 13px; text-decoration: none; transition: all 0.15s; margin-bottom: 12px; }
+  .cadastre-hint { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+  .map-embed-btn { display: block; width: 100%; padding: 14px; background: var(--sky); border: 2px dashed var(--border); border-radius: var(--radius); text-align: center; cursor: pointer; color: var(--text-muted); font-size: 14px; text-decoration: none; transition: all 0.15s; margin-bottom: 12px; }
   .map-embed-btn:hover { border-color: var(--green-accent); background: #e0f4ea; color: var(--green-dark); }
   .map-coords-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .iin-result { display: none; background: #eaf7f0; border: 1px solid var(--green-accent); border-radius: 10px; padding: 14px; margin-top: 14px; }
+  .iin-result { display: none; background: #eaf7f0; border: 1px solid var(--green-accent); border-radius: var(--radius); padding: 14px; margin-top: 14px; }
   .iin-result.show { display: block; }
-  .iin-result-name { font-size: 15px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
-  .iin-result-detail { font-size: 12px; color: var(--text-muted); }
-  .iin-result-badge { display: inline-block; margin-top: 8px; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .iin-result-name { font-size: 16px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+  .iin-result-detail { font-size: 13px; color: var(--text-muted); }
+  .iin-result-badge { display: inline-block; margin-top: 8px; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
   .iin-badge-ip { background: #caf0f8; color: #0077b6; }
   .iin-badge-kh { background: #d8f3dc; color: #2d6a4f; }
   .iin-badge-none { background: #fde8d8; color: #b5451b; }
-  .onboard-confirm-btn { width: 100%; padding: 14px; background: var(--green-mid); color: #fff; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.15s; margin-top: 20px; }
+  .onboard-confirm-btn { width: 100%; padding: 14px; background: var(--green-mid); color: #fff; border: none; border-radius: var(--radius); font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.15s; margin-top: 20px; }
   .onboard-confirm-btn:hover { background: var(--green-dark); }
   .onboard-confirm-btn:disabled { background: var(--border); cursor: not-allowed; }
-  .onboard-secondary-btn { width: 100%; padding: 10px; background: transparent; color: var(--text-muted); border: 1px solid var(--border); border-radius: 10px; font-size: 13px; cursor: pointer; transition: all 0.15s; margin-top: 8px; }
+  .onboard-secondary-btn { width: 100%; padding: 10px; background: transparent; color: var(--text-muted); border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; cursor: pointer; transition: all 0.15s; margin-top: 8px; }
   .onboard-secondary-btn:hover { background: var(--sky); color: var(--text); }
   .progress-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
   .progress-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: all 0.2s; }
@@ -200,69 +203,135 @@
   .progress-dot.done { background: var(--green-accent); }
 
   /* ── HECTARE INPUT ── */
-  .ha-big-input { width: 100%; padding: 18px; border: 2px solid var(--border); border-radius: 14px; font-size: 28px; font-weight: 700; text-align: center; font-family: 'Inter', sans-serif; outline: none; background: var(--sky); color: var(--green-dark); }
+  .ha-big-input { width: 100%; padding: 18px; border: 2px solid var(--border); border-radius: var(--radius); font-size: 28px; font-weight: 700; text-align: center; font-family: 'Inter', sans-serif; outline: none; background: var(--sky); color: var(--green-dark); }
   .ha-big-input:focus { border-color: var(--green-accent); background: #fff; }
-  .ha-hint { background: #eaf7f0; border-radius: 10px; padding: 12px 16px; font-size: 12px; color: var(--green-dark); line-height: 1.7; margin-top: 14px; }
+  .ha-hint { background: #eaf7f0; border-radius: var(--radius); padding: 12px 16px; font-size: 13px; color: var(--green-dark); line-height: 1.7; margin-top: 14px; }
 
   /* ── GOV SUPPORT ── */
   .gov-section { display: none; }
   .gov-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-  .gov-tab { padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 500; border: 1.5px solid var(--border); background: #fff; color: var(--text-muted); transition: all 0.15s; }
+  .gov-tab { padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: 500; border: 1.5px solid var(--border); background: #fff; color: var(--text-muted); transition: all 0.15s; }
   .gov-tab.active { border-color: var(--green-mid); background: var(--green-mid); color: #fff; }
   .gov-panel { display: none; }
   .gov-panel.active { display: block; }
 
   /* ── COST CALC ── */
   .calc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 20px; }
-  .calc-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
-  .calc-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 12px; }
-  .calc-select { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; background: var(--sky); margin-bottom: 10px; outline: none; }
-  .calc-number { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; background: var(--sky); outline: none; }
-  .calc-result-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-  .calc-result-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f8f4; font-size: 13px; }
-  .calc-result-row:last-child { border-bottom: none; font-weight: 700; font-size: 15px; }
+  .calc-card { background: #fff; border: 1px solid var(--border); padding: 16px; }
+  .calc-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+  .calc-select { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; background: var(--sky); margin-bottom: 10px; outline: none; }
+  .calc-number { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; background: var(--sky); outline: none; }
+  .calc-result-box { background: #fff; border: 1px solid var(--border); padding: 20px; margin-bottom: 20px; }
+  .calc-result-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f8f4; font-size: 14px; }
+  .calc-result-row:last-child { border-bottom: none; font-weight: 700; font-size: 16px; }
   .calc-result-row span:last-child { color: var(--green-mid); }
   .prices-table { width: 100%; }
 
   /* ── CREDIT ── */
-  .credit-info-card { background: linear-gradient(135deg, #1a3a2a, #2d6a4f); border-radius: 16px; padding: 24px; color: #fff; margin-bottom: 16px; }
-  .credit-info-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
-  .credit-info-card p { font-size: 13px; opacity: 0.8; margin-bottom: 16px; }
+  .credit-info-card { background: linear-gradient(135deg, #1a3a2a, #2d6a4f); padding: 24px; color: #fff; margin-bottom: 16px; }
+  .credit-info-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .credit-info-card p { font-size: 14px; opacity: 0.8; margin-bottom: 16px; }
   .credit-params { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .credit-param { background: rgba(255,255,255,0.12); border-radius: 10px; padding: 12px; }
-  .credit-param-label { font-size: 10px; opacity: 0.65; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-  .credit-param-val { font-size: 20px; font-weight: 700; }
-  .credit-calc-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
-  .credit-calc-box h4 { font-size: 14px; font-weight: 600; margin-bottom: 14px; }
-  .credit-total-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f8f4; font-size: 13px; }
+  .credit-param { background: rgba(255,255,255,0.12); padding: 12px; }
+  .credit-param-label { font-size: 11px; opacity: 0.65; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .credit-param-val { font-size: 22px; font-weight: 700; }
+  .credit-calc-box { background: #fff; border: 1px solid var(--border); padding: 20px; margin-bottom: 16px; }
+  .credit-calc-box h4 { font-size: 16px; font-weight: 600; margin-bottom: 14px; }
+  .credit-total-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f8f4; font-size: 14px; }
   .credit-total-row:last-child { border-bottom: none; font-weight: 700; }
   .credit-total-row .highlight { color: var(--green-mid); }
 
   /* ── TAX PANEL ── */
   .tax-type-toggle { display: flex; gap: 10px; margin-bottom: 20px; }
-  .tax-type-btn { flex: 1; padding: 12px; border-radius: 12px; border: 2px solid var(--border); text-align: center; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; color: var(--text-muted); background: var(--sky); }
+  .tax-type-btn { flex: 1; padding: 12px; border: 2px solid var(--border); text-align: center; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.15s; color: var(--text-muted); background: var(--sky); }
   .tax-type-btn.active { border-color: var(--green-mid); background: #eaf7f0; color: var(--green-dark); }
   .tax-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 20px; }
-  .tax-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
-  .tax-card h4 { font-size: 14px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
-  .tax-card .tax-sub { font-size: 11px; color: var(--text-muted); margin-bottom: 14px; }
-  .tax-result-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #f0f8f4; font-size: 13px; }
+  .tax-card { background: #fff; border: 1px solid var(--border); padding: 20px; }
+  .tax-card h4 { font-size: 16px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+  .tax-card .tax-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+  .tax-result-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #f0f8f4; font-size: 14px; }
   .tax-result-row:last-child { border-bottom: none; }
   .tax-result-row span:last-child { color: var(--green-mid); font-weight: 600; }
-  .tax-info-box { background: #fff8e6; border: 1px solid #f0d080; border-radius: 12px; padding: 16px; font-size: 12px; color: #7a6020; line-height: 1.8; margin-bottom: 18px; }
-  .income-calc-box { background: var(--sky); border-radius: 10px; padding: 14px; margin-bottom: 12px; }
-  .income-calc-box .ic-label { font-size: 12px; font-weight: 600; color: var(--green-dark); margin-bottom: 10px; }
+  .tax-info-box { background: #fff8e6; border: 1px solid #f0d080; padding: 16px; font-size: 13px; color: #7a6020; line-height: 1.8; margin-bottom: 18px; }
+  .income-calc-box { background: var(--sky); padding: 14px; margin-bottom: 12px; }
+  .income-calc-box .ic-label { font-size: 13px; font-weight: 600; color: var(--green-dark); margin-bottom: 10px; }
   .ic-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-  .ic-result { background: #fff; border-radius: 8px; padding: 10px; font-size: 12px; display: none; }
+  .ic-result { background: #fff; padding: 10px; font-size: 13px; display: none; }
   .bonitet-ref { margin-top: 18px; }
-  .bonitet-ref h4 { font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+  .bonitet-ref h4 { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
 
-  .change-city-btn { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 6px; padding: 3px 10px; font-size: 11px; cursor: pointer; margin-left: 6px; transition: background 0.15s; }
+  .change-city-btn { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: var(--radius); padding: 3px 10px; font-size: 12px; cursor: pointer; margin-left: 6px; transition: background 0.15s; }
   .change-city-btn:hover { background: rgba(255,255,255,0.22); }
 
   ::-webkit-scrollbar { width: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: var(--border); }
+
+  /* ── РЕКОМЕНДУЕМАЯ ДАТА ── */
+  .rec-date-box { background: #f0f8f4; border: 1px solid var(--green-accent); padding: 8px 12px; font-size: 14px; color: var(--green-dark); margin-top: 4px; display: flex; justify-content: space-between; }
+  .rec-date-box .label { font-weight: 500; color: var(--text-muted); }
+  .rec-date-box .value { font-weight: 700; }
+
+  /* ── МОБИЛЬНАЯ АДАПТАЦИЯ ── */
+  @media (max-width: 1024px) {
+    :root {
+      --chat-w: 300px;
+      --sidebar-w: 200px;
+    }
+    .content { padding: 20px; }
+  }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; height: auto; overflow-y: auto; }
+    .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; height: auto; padding: 8px 12px; }
+    .logo { padding: 8px 12px; border-bottom: none; flex: 1; }
+    .logo-title { font-size: 20px; }
+    .logo-sub { font-size: 10px; }
+    .nav { display: flex; flex-wrap: wrap; padding: 4px 0; flex: 1; }
+    .nav-item { padding: 4px 8px; font-size: 14px; gap: 4px; }
+    .nav-item .nav-icon { font-size: 16px; width: 16px; }
+    .nav-arrow { display: none; }
+    .nav-sub { display: none !important; } /* на мобильных скрываем подменю для простоты */
+    .sidebar-footer { display: none; }
+
+    .main { flex: 1; }
+    .topbar { padding: 0 16px; height: 50px; }
+    .topbar-title { font-size: 16px; }
+    .topbar-meta { font-size: 12px; }
+    .weather-strip { padding: 10px 16px; gap: 12px; }
+    .weather-val { font-size: 15px; }
+    .weather-item { font-size: 12px; }
+    .weather-badge { font-size: 11px; }
+
+    .content-wrap { flex-direction: column; }
+    .content { padding: 16px; }
+    .chat-panel { width: 100%; border-left: none; border-top: 1px solid var(--border); max-height: 400px; }
+    .cards-row { grid-template-columns: 1fr 1fr; }
+    .card-value { font-size: 22px; }
+
+    .modal { width: 95%; padding: 20px; }
+    .form-row-2, .form-row-3 { grid-template-columns: 1fr; }
+    .calc-grid { grid-template-columns: 1fr; }
+    .tax-grid { grid-template-columns: 1fr; }
+    .credit-params { grid-template-columns: 1fr; }
+    .onboard-card { width: 95%; }
+    .onboard-body { padding: 20px; }
+    .ic-grid { grid-template-columns: 1fr; }
+
+    .gov-tabs { flex-wrap: wrap; }
+    .gov-tab { font-size: 12px; padding: 6px 12px; }
+  }
+
+  @media (max-width: 480px) {
+    .cards-row { grid-template-columns: 1fr; }
+    .weather-strip { flex-wrap: wrap; gap: 6px; }
+    .weather-item { width: 45%; }
+    .weather-badge { margin-left: 0; width: 100%; justify-content: center; }
+    .topbar { flex-wrap: wrap; height: auto; padding: 8px 12px; }
+    .topbar-title { font-size: 14px; }
+    .chat-panel { max-height: 300px; }
+    .quick-btns .quick-btn { font-size: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -271,15 +340,15 @@
 <div class="onboard-overlay open" id="onboardOverlay">
   <div class="onboard-card">
     <div class="onboard-steps">
-      <div class="onboard-step-tab active" id="stepTab1">① Участок</div>
-      <div class="onboard-step-tab" id="stepTab2">② ИИН</div>
-      <div class="onboard-step-tab" id="stepTab3">③ Площадь земли</div>
+      <div class="onboard-step-tab active" id="stepTab1">1 Участок</div>
+      <div class="onboard-step-tab" id="stepTab2">2 ИИН</div>
+      <div class="onboard-step-tab" id="stepTab3">3 Площадь</div>
     </div>
 
-    <!-- STEP 1 — Участок -->
+    <!-- STEP 1 -->
     <div class="onboard-page active" id="onboardPage1">
       <div class="onboard-body">
-        <div class="onboard-icon">🗺️</div>
+        <div class="onboard-icon">🗺</div>
         <h2>Укажите ваш земельный участок</h2>
         <p>Выберите удобный способ привязки участка. Данные о погоде и влажности почвы будут загружаться автоматически по вашим координатам.</p>
         <div class="progress-dots">
@@ -305,7 +374,7 @@
         </div>
         <div class="land-input-section" id="sectionMap">
           <a href="https://www.google.com/maps/@42.885942,71.3869622,13z" target="_blank" class="map-embed-btn">
-            🗺️ Открыть Google Maps и выбрать участок<br>
+            🗺 Открыть Google Maps и выбрать участок<br>
             <span style="font-size:11px;opacity:0.7">Найдите участок, скопируйте координаты и вставьте ниже</span>
           </a>
           <div class="map-coords-row">
@@ -318,7 +387,7 @@
       </div>
     </div>
 
-    <!-- STEP 2 — ИИН -->
+    <!-- STEP 2 -->
     <div class="onboard-page" id="onboardPage2">
       <div class="onboard-body">
         <div class="onboard-icon">🪪</div>
@@ -344,7 +413,7 @@
       </div>
     </div>
 
-    <!-- STEP 3 — Площадь земли -->
+    <!-- STEP 3 -->
     <div class="onboard-page" id="onboardPage3">
       <div class="onboard-body">
         <div class="onboard-icon">📐</div>
@@ -356,7 +425,7 @@
           <div class="progress-dot active"></div>
         </div>
         <input class="ha-big-input" id="totalHaInput" type="number" min="0.1" step="0.5" placeholder="100" oninput="onHaInput()">
-        <div style="text-align:center;margin-top:8px;font-size:14px;color:var(--text-muted);font-weight:500">гектаров</div>
+        <div style="text-align:center;margin-top:8px;font-size:15px;color:var(--text-muted);font-weight:500">гектаров</div>
         <div class="ha-hint">
           <b>Зачем это нужно?</b><br>
           • Контроль распределения: лук 20 га, картофель 30 га из 100 га<br>
@@ -377,21 +446,21 @@
     <div class="logo-sub">Умный агроном</div>
   </div>
   <nav class="nav">
-    <div class="nav-item active" onclick="showSection('beds',this)"><span class="nav-icon">🌱</span> Мои клетки</div>
-    <div class="nav-item" onclick="showSection('schedule',this)"><span class="nav-icon">📅</span> Расписание полива</div>
+    <div class="nav-item active" onclick="showSection('beds',this)"><span class="nav-icon">🌱</span> Клетки</div>
+    <div class="nav-item" onclick="showSection('schedule',this)"><span class="nav-icon">📅</span> Расписание</div>
     <div class="nav-item" onclick="showSection('analytics',this)"><span class="nav-icon">📊</span> Аналитика</div>
     <div class="nav-item has-sub" onclick="toggleGovMenu(this)">
-      <span class="nav-icon">🏛️</span> Гос. поддержка
+      <span class="nav-icon">🏛</span> Господдержка
       <span class="nav-arrow" id="govArrow">▶</span>
     </div>
     <div class="nav-sub" id="govSubMenu">
-      <div class="nav-sub-item" onclick="showGovPanel('calc',this)">💰 Расчёт затрат</div>
-      <div class="nav-sub-item" onclick="showGovPanel('prices',this)">📈 Расход на выращивание</div>
-      <div class="nav-sub-item" onclick="showGovPanel('credit',this)">🏦 Кен Дала 2</div>
-      <div class="nav-sub-item" onclick="showGovPanel('taxes',this)">🧾 Налоги</div>
+      <div class="nav-sub-item" onclick="showGovPanel('calc',this)">Расчёт затрат</div>
+      <div class="nav-sub-item" onclick="showGovPanel('prices',this)">Расход на выращивание</div>
+      <div class="nav-sub-item" onclick="showGovPanel('credit',this)">Кен Дала 2</div>
+      <div class="nav-sub-item" onclick="showGovPanel('taxes',this)">Налоги</div>
     </div>
-    <div class="nav-item" onclick="showSection('map',this)"><span class="nav-icon">🗺️</span> Карта участка</div>
-    <div class="nav-item" onclick="showSection('settings',this)"><span class="nav-icon">⚙️</span> Настройки</div>
+    <div class="nav-item" onclick="showSection('map',this)"><span class="nav-icon">🗺</span> Карта</div>
+    <div class="nav-item" onclick="showSection('settings',this)"><span class="nav-icon">⚙</span> Настройки</div>
   </nav>
   <div class="sidebar-footer">Демо-версия v0.3<br>© АгроИИ 2026</div>
 </aside>
@@ -466,14 +535,14 @@
           <table>
             <thead><tr><th>День</th><th>Клетка</th><th>Культура</th><th>Рек. время</th><th>Причина</th></tr></thead>
             <tbody>
-              <tr><td>Сегодня</td><td class="bed-num">№22</td><td><span class="crop-badge">🫚 Свёкла</span></td><td>06:00–07:00</td><td>Влажность 28%</td></tr>
-              <tr><td>Сегодня</td><td class="bed-num">№5</td><td><span class="crop-badge">🌿 Укроп</span></td><td>18:30</td><td>Слабый ветер вечером</td></tr>
-              <tr><td>Завтра</td><td class="bed-num">№11</td><td><span class="crop-badge">🍅 Помидоры</span></td><td>07:00–08:00</td><td>Без осадков, жара</td></tr>
-              <tr><td>Завтра</td><td class="bed-num">№3</td><td><span class="crop-badge">🥕 Морковь</span></td><td>19:00</td><td>Плановый полив</td></tr>
+              <tr><td>Сегодня</td><td class="bed-num">22</td><td><span class="crop-badge">Свёкла</span></td><td>06:00–07:00</td><td>Влажность 28%</td></tr>
+              <tr><td>Сегодня</td><td class="bed-num">5</td><td><span class="crop-badge">Укроп</span></td><td>18:30</td><td>Слабый ветер вечером</td></tr>
+              <tr><td>Завтра</td><td class="bed-num">11</td><td><span class="crop-badge">Помидоры</span></td><td>07:00–08:00</td><td>Без осадков, жара</td></tr>
+              <tr><td>Завтра</td><td class="bed-num">3</td><td><span class="crop-badge">Морковь</span></td><td>19:00</td><td>Плановый полив</td></tr>
             </tbody>
           </table>
         </div>
-        <p style="font-size:13px;color:var(--text-muted);margin-top:8px">💡 Расписание генерируется ИИ агрономом. Спросите агронома для уточнений.</p>
+        <p style="font-size:14px;color:var(--text-muted);margin-top:8px">Расписание генерируется ИИ агрономом. Спросите агронома для уточнений.</p>
       </div>
 
       <!-- ANALYTICS -->
@@ -484,37 +553,37 @@
           <div class="card"><div class="card-label">Поливов на неделе</div><div class="card-value">8</div><div class="card-sub">рекомендовано ИИ</div></div>
           <div class="card"><div class="card-label">Экономия воды</div><div class="card-value" style="color:var(--green-mid)">~34%</div><div class="card-sub">vs ручной полив</div></div>
         </div>
-        <p style="font-size:13px;color:var(--text-muted)">Подробные графики появятся в полной версии. Спросите ИИ агронома о состоянии любой клетки.</p>
+        <p style="font-size:14px;color:var(--text-muted)">Подробные графики появятся в полной версии. Спросите ИИ агронома о состоянии любой клетки.</p>
       </div>
 
       <!-- GOV SUPPORT -->
       <div id="section-gov" style="display:none">
         <div class="section-header"><div class="section-title">Государственная поддержка</div></div>
         <div class="gov-tabs">
-          <div class="gov-tab active" onclick="switchGovTab('calc',this)">💰 Расчёт затрат на 1 га</div>
-          <div class="gov-tab" onclick="switchGovTab('prices',this)">📈 Расход на выращивание</div>
-          <div class="gov-tab" onclick="switchGovTab('credit',this)">🏦 Льготный кредит «Кең дала 2»</div>
-          <div class="gov-tab" onclick="switchGovTab('taxes',this)">🧾 Налоги</div>
+          <div class="gov-tab active" onclick="switchGovTab('calc',this)">Расчёт затрат на 1 га</div>
+          <div class="gov-tab" onclick="switchGovTab('prices',this)">Расход на выращивание</div>
+          <div class="gov-tab" onclick="switchGovTab('credit',this)">Льготный кредит «Кең дала 2»</div>
+          <div class="gov-tab" onclick="switchGovTab('taxes',this)">Налоги</div>
         </div>
 
         <!-- CALC -->
         <div class="gov-panel active" id="govPanel-calc">
           <div class="calc-grid">
             <div class="calc-card"><h4>Клетка 1</h4>
-              <select class="calc-select" id="cc1-crop" onchange="calcCosts()"><option value="">— выберите культуру —</option><option value="onion">🧅 Лук</option><option value="potato">🥔 Картофель</option><option value="carrot">🥕 Морковь</option><option value="tomato">🍅 Помидоры</option><option value="wheat">🌾 Пшеница</option><option value="sunflower">🌻 Подсолнечник</option><option value="beet">🫚 Свёкла</option><option value="cabbage">🥬 Капуста</option></select>
+              <select class="calc-select" id="cc1-crop" onchange="calcCosts()"><option value="">— выберите культуру —</option><option value="onion">Лук</option><option value="potato">Картофель</option><option value="carrot">Морковь</option><option value="tomato">Помидоры</option><option value="wheat">Пшеница</option><option value="sunflower">Подсолнечник</option><option value="beet">Свёкла</option><option value="cabbage">Капуста</option></select>
               <label class="form-label">Площадь (га)</label><input class="calc-number" id="cc1-area" type="number" min="0.1" step="0.1" value="1" oninput="calcCosts()"></div>
             <div class="calc-card"><h4>Клетка 2</h4>
-              <select class="calc-select" id="cc2-crop" onchange="calcCosts()"><option value="">— выберите культуру —</option><option value="onion">🧅 Лук</option><option value="potato">🥔 Картофель</option><option value="carrot">🥕 Морковь</option><option value="tomato">🍅 Помидоры</option><option value="wheat">🌾 Пшеница</option><option value="sunflower">🌻 Подсолнечник</option><option value="beet">🫚 Свёкла</option><option value="cabbage">🥬 Капуста</option></select>
+              <select class="calc-select" id="cc2-crop" onchange="calcCosts()"><option value="">— выберите культуру —</option><option value="onion">Лук</option><option value="potato">Картофель</option><option value="carrot">Морковь</option><option value="tomato">Помидоры</option><option value="wheat">Пшеница</option><option value="sunflower">Подсолнечник</option><option value="beet">Свёкла</option><option value="cabbage">Капуста</option></select>
               <label class="form-label">Площадь (га)</label><input class="calc-number" id="cc2-area" type="number" min="0.1" step="0.1" value="1" oninput="calcCosts()"></div>
             <div class="calc-card"><h4>Клетка 3</h4>
-              <select class="calc-select" id="cc3-crop" onchange="calcCosts()"><option value="">— выберите культуру —</option><option value="onion">🧅 Лук</option><option value="potato">🥔 Картофель</option><option value="carrot">🥕 Морковь</option><option value="tomato">🍅 Помидоры</option><option value="wheat">🌾 Пшеница</option><option value="sunflower">🌻 Подсолнечник</option><option value="beet">🫚 Свёкла</option><option value="cabbage">🥬 Капуста</option></select>
+              <select class="calc-select" id="cc3-crop" onchange="calcCosts()"><option value="">— выберите культуру —</option><option value="onion">Лук</option><option value="potato">Картофель</option><option value="carrot">Морковь</option><option value="tomato">Помидоры</option><option value="wheat">Пшеница</option><option value="sunflower">Подсолнечник</option><option value="beet">Свёкла</option><option value="cabbage">Капуста</option></select>
               <label class="form-label">Площадь (га)</label><input class="calc-number" id="cc3-area" type="number" min="0.1" step="0.1" value="1" oninput="calcCosts()"></div>
             <div class="calc-card"><h4>Клетка 4</h4>
-              <select class="calc-select" id="cc4-crop" onchange="calcCosts()"><option value="">— выберите культуру —</option><option value="onion">🧅 Лук</option><option value="potato">🥔 Картофель</option><option value="carrot">🥕 Морковь</option><option value="tomato">🍅 Помидоры</option><option value="wheat">🌾 Пшеница</option><option value="sunflower">🌻 Подсолнечник</option><option value="beet">🫚 Свёкла</option><option value="cabbage">🥬 Капуста</option></select>
+              <select class="calc-select" id="cc4-crop" onchange="calcCosts()"><option value="">— выберите культуру —</option><option value="onion">Лук</option><option value="potato">Картофель</option><option value="carrot">Морковь</option><option value="tomato">Помидоры</option><option value="wheat">Пшеница</option><option value="sunflower">Подсолнечник</option><option value="beet">Свёкла</option><option value="cabbage">Капуста</option></select>
               <label class="form-label">Площадь (га)</label><input class="calc-number" id="cc4-area" type="number" min="0.1" step="0.1" value="1" oninput="calcCosts()"></div>
           </div>
           <div class="calc-result-box" id="calcResultBox">
-            <p style="font-size:13px;color:var(--text-muted);text-align:center">Выберите культуры и площади выше для расчёта</p>
+            <p style="font-size:14px;color:var(--text-muted);text-align:center">Выберите культуры и площади выше для расчёта</p>
           </div>
         </div>
 
@@ -524,24 +593,24 @@
             <table class="prices-table">
               <thead><tr><th>Культура</th><th>Семена (тг/кг)</th><th>Удобрения (тг/га)</th><th>Вода/полив (тг/га)</th><th>Уборка (тг/га)</th><th>Итого на 1 га</th><th>Ср. цена сбыта (тг/т)</th></tr></thead>
               <tbody>
-                <tr><td><span class="crop-badge">🧅 Лук</span></td><td>1 200</td><td>45 000</td><td>25 000</td><td>80 000</td><td style="font-weight:600;color:var(--green-mid)">500 000</td><td>80 000</td></tr>
-                <tr><td><span class="crop-badge">🥔 Картофель</span></td><td>180</td><td>55 000</td><td>30 000</td><td>90 000</td><td style="font-weight:600;color:var(--green-mid)">600 000</td><td>70 000</td></tr>
-                <tr><td><span class="crop-badge">🥕 Морковь</span></td><td>2 500</td><td>40 000</td><td>20 000</td><td>70 000</td><td style="font-weight:600;color:var(--green-mid)">420 000</td><td>65 000</td></tr>
-                <tr><td><span class="crop-badge">🍅 Помидоры</span></td><td>3 000</td><td>60 000</td><td>35 000</td><td>120 000</td><td style="font-weight:600;color:var(--green-mid)">850 000</td><td>120 000</td></tr>
-                <tr><td><span class="crop-badge">🌾 Пшеница</span></td><td>120</td><td>35 000</td><td>15 000</td><td>60 000</td><td style="font-weight:600;color:var(--green-mid)">250 000</td><td>90 000</td></tr>
-                <tr><td><span class="crop-badge">🌻 Подсолнечник</span></td><td>350</td><td>30 000</td><td>10 000</td><td>55 000</td><td style="font-weight:600;color:var(--green-mid)">220 000</td><td>200 000</td></tr>
-                <tr><td><span class="crop-badge">🫚 Свёкла</span></td><td>1 800</td><td>50 000</td><td>28 000</td><td>85 000</td><td style="font-weight:600;color:var(--green-mid)">480 000</td><td>55 000</td></tr>
-                <tr><td><span class="crop-badge">🥬 Капуста</span></td><td>2 200</td><td>42 000</td><td>22 000</td><td>75 000</td><td style="font-weight:600;color:var(--green-mid)">450 000</td><td>60 000</td></tr>
+                <tr><td><span class="crop-badge">Лук</span></td><td>1 200</td><td>45 000</td><td>25 000</td><td>80 000</td><td style="font-weight:600;color:var(--green-mid)">500 000</td><td>80 000</td></tr>
+                <tr><td><span class="crop-badge">Картофель</span></td><td>180</td><td>55 000</td><td>30 000</td><td>90 000</td><td style="font-weight:600;color:var(--green-mid)">600 000</td><td>70 000</td></tr>
+                <tr><td><span class="crop-badge">Морковь</span></td><td>2 500</td><td>40 000</td><td>20 000</td><td>70 000</td><td style="font-weight:600;color:var(--green-mid)">420 000</td><td>65 000</td></tr>
+                <tr><td><span class="crop-badge">Помидоры</span></td><td>3 000</td><td>60 000</td><td>35 000</td><td>120 000</td><td style="font-weight:600;color:var(--green-mid)">850 000</td><td>120 000</td></tr>
+                <tr><td><span class="crop-badge">Пшеница</span></td><td>120</td><td>35 000</td><td>15 000</td><td>60 000</td><td style="font-weight:600;color:var(--green-mid)">250 000</td><td>90 000</td></tr>
+                <tr><td><span class="crop-badge">Подсолнечник</span></td><td>350</td><td>30 000</td><td>10 000</td><td>55 000</td><td style="font-weight:600;color:var(--green-mid)">220 000</td><td>200 000</td></tr>
+                <tr><td><span class="crop-badge">Свёкла</span></td><td>1 800</td><td>50 000</td><td>28 000</td><td>85 000</td><td style="font-weight:600;color:var(--green-mid)">480 000</td><td>55 000</td></tr>
+                <tr><td><span class="crop-badge">Капуста</span></td><td>2 200</td><td>42 000</td><td>22 000</td><td>75 000</td><td style="font-weight:600;color:var(--green-mid)">450 000</td><td>60 000</td></tr>
               </tbody>
             </table>
           </div>
-          <p style="font-size:12px;color:var(--text-muted);margin-top:8px">* Среднестатистические цены по Казахстану. Данные носят ориентировочный характер.</p>
+          <p style="font-size:13px;color:var(--text-muted);margin-top:8px">* Среднестатистические цены по Казахстану. Данные носят ориентировочный характер.</p>
         </div>
 
         <!-- CREDIT -->
         <div class="gov-panel" id="govPanel-credit">
           <div class="credit-info-card">
-            <h3>🏦 Программа «Кең дала 2»</h3>
+            <h3>Программа «Кең дала 2»</h3>
             <p>Аграрная кредитная корпорация РК — льготное кредитование для фермеров на пополнение оборотных средств</p>
             <div class="credit-params">
               <div class="credit-param"><div class="credit-param-label">Ставка (прямые заёмщики)</div><div class="credit-param-val">5% год.</div></div>
@@ -551,7 +620,7 @@
           </div>
           <div class="credit-calc-box">
             <h4>Расчёт кредита по вашим клеткам</h4>
-            <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px">Заполните «Расчёт затрат», чтобы сумма подставилась автоматически. Или введите вручную:</p>
+            <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px">Заполните «Расчёт затрат», чтобы сумма подставилась автоматически. Или введите вручную:</p>
             <div class="form-row">
               <label class="form-label">Общие затраты на посев (тг)</label>
               <input class="form-input" id="creditCostInput" type="number" placeholder="500000" oninput="calcCredit()">
@@ -564,7 +633,7 @@
               <div class="credit-total-row"><span style="font-weight:700">Итого к возврату</span><span class="highlight" style="font-size:18px" id="cr-total">—</span></div>
             </div>
           </div>
-          <div style="background:#fff8e6;border:1px solid #f0d080;border-radius:12px;padding:16px;font-size:13px;color:#7a6020;line-height:1.7">
+          <div style="background:#fff8e6;border:1px solid #f0d080;padding:16px;font-size:14px;color:#7a6020;line-height:1.7">
             <b>Условия программы:</b><br>
             • Целевое назначение: пополнение оборотных средств (посевная / уборка)<br>
             • Залог: 85% гарантия АО «ФРП Даму» + 15% собственное обеспечение<br>
@@ -577,8 +646,8 @@
         <!-- TAXES -->
         <div class="gov-panel" id="govPanel-taxes">
           <div class="tax-type-toggle">
-            <div class="tax-type-btn active" id="taxBtnKH" onclick="switchTaxType('kh',this)">🌾 КХ — Крестьянское хозяйство</div>
-            <div class="tax-type-btn" id="taxBtnIP" onclick="switchTaxType('ip',this)">💼 ИП — Индивидуальный предприниматель</div>
+            <div class="tax-type-btn active" id="taxBtnKH" onclick="switchTaxType('kh',this)">КХ — Крестьянское хозяйство</div>
+            <div class="tax-type-btn" id="taxBtnIP" onclick="switchTaxType('ip',this)">ИП — Индивидуальный предприниматель</div>
           </div>
 
           <!-- КХ -->
@@ -592,22 +661,22 @@
             <div class="tax-grid">
               <!-- ЕЗН карточка -->
               <div class="tax-card">
-                <h4>💰 Единый земельный налог (ЕЗН)</h4>
+                <h4>Единый земельный налог (ЕЗН)</h4>
                 <div class="tax-sub">0,5% от годового дохода КХ · Декларация 920.00</div>
                 <div class="income-calc-box">
-                  <div class="ic-label">📦 Не знаете доход? Рассчитайте через урожай:</div>
+                  <div class="ic-label">Не знаете доход? Рассчитайте через урожай:</div>
                   <div class="form-row" style="margin-bottom:8px">
                     <label class="form-label">Культура</label>
                     <select class="form-input" id="kh-crop-sel" onchange="fillKhDefaults()">
                       <option value="">— выберите культуру —</option>
-                      <option value="onion">🧅 Лук (~30 т/га, ~80 тг/кг)</option>
-                      <option value="potato">🥔 Картофель (~25 т/га, ~70 тг/кг)</option>
-                      <option value="carrot">🥕 Морковь (~30 т/га, ~65 тг/кг)</option>
-                      <option value="tomato">🍅 Помидоры (~40 т/га, ~120 тг/кг)</option>
-                      <option value="wheat">🌾 Пшеница (~2 т/га, ~90 тг/кг)</option>
-                      <option value="sunflower">🌻 Подсолнечник (~1.5 т/га, ~200 тг/кг)</option>
-                      <option value="beet">🫚 Свёкла (~35 т/га, ~55 тг/кг)</option>
-                      <option value="cabbage">🥬 Капуста (~40 т/га, ~60 тг/кг)</option>
+                      <option value="onion">Лук (~30 т/га, ~80 тг/кг)</option>
+                      <option value="potato">Картофель (~25 т/га, ~70 тг/кг)</option>
+                      <option value="carrot">Морковь (~30 т/га, ~65 тг/кг)</option>
+                      <option value="tomato">Помидоры (~40 т/га, ~120 тг/кг)</option>
+                      <option value="wheat">Пшеница (~2 т/га, ~90 тг/кг)</option>
+                      <option value="sunflower">Подсолнечник (~1.5 т/га, ~200 тг/кг)</option>
+                      <option value="beet">Свёкла (~35 т/га, ~55 тг/кг)</option>
+                      <option value="cabbage">Капуста (~40 т/га, ~60 тг/кг)</option>
                     </select>
                   </div>
                   <div class="ic-grid">
@@ -627,11 +696,11 @@
                   <div class="tax-result-row"><span>Ставка ЕЗН</span><span>0,5%</span></div>
                   <div class="tax-result-row" style="font-weight:700"><span>ЕЗН к уплате в год</span><span id="kh-tax-show">—</span></div>
                 </div>
-                <p style="font-size:11px;color:var(--text-muted);margin-top:8px">⏰ Срок: декларация 920.00 до 31 марта следующего года</p>
+                <p style="font-size:12px;color:var(--text-muted);margin-top:8px">⏰ Срок: декларация 920.00 до 31 марта следующего года</p>
               </div>
               <!-- Земельный налог КХ -->
               <div class="tax-card">
-                <h4>🌍 Земельный налог (сельхозземли)</h4>
+                <h4>Земельный налог (сельхозземли)</h4>
                 <div class="tax-sub">Ставка по баллу бонитета · Жамбылская область</div>
                 <div class="form-row">
                   <label class="form-label">Площадь участка (га)</label>
@@ -656,12 +725,12 @@
                   <div class="tax-result-row"><span>Ставка</span><span id="kh-lt-rate">—</span></div>
                   <div class="tax-result-row" style="font-weight:700"><span>Земельный налог/год</span><span id="kh-lt-total">—</span></div>
                 </div>
-                <p style="font-size:11px;color:var(--text-muted);margin-top:8px">⚠️ Неиспользуемые с/х земли — ставка ×40 (с 2026 г., ст. 505 НК РК)</p>
+                <p style="font-size:12px;color:var(--text-muted);margin-top:8px">⚠️ Неиспользуемые с/х земли — ставка ×40 (с 2026 г., ст. 505 НК РК)</p>
               </div>
             </div>
             <!-- Справочная таблица бонитета -->
             <div class="bonitet-ref">
-              <h4>📊 Справка: ставки земналога по Жамбылской обл. (2025)</h4>
+              <h4>Справка: ставки земналога по Жамбылской обл. (2025)</h4>
               <div class="table-wrap">
                 <table>
                   <thead><tr><th>Балл бонитета</th><th>Ставка (тг/га)</th><th>Пример: 100 га / год</th><th>Пример: 500 га / год</th></tr></thead>
@@ -688,22 +757,22 @@
             <div class="tax-grid">
               <!-- ИПН карточка -->
               <div class="tax-card">
-                <h4>📋 ИПН по упрощённой декларации</h4>
+                <h4>ИПН по упрощённой декларации</h4>
                 <div class="tax-sub">3% от дохода = 1,5% ИПН + 1,5% соц.налог · Декларация 910.00</div>
                 <div class="income-calc-box">
-                  <div class="ic-label">📦 Рассчитать доход через урожай:</div>
+                  <div class="ic-label">Рассчитать доход через урожай:</div>
                   <div class="form-row" style="margin-bottom:8px">
                     <label class="form-label">Культура</label>
                     <select class="form-input" id="ip-crop-sel" onchange="fillIpDefaults()">
                       <option value="">— выберите культуру —</option>
-                      <option value="onion">🧅 Лук (~30 т/га, ~80 тг/кг)</option>
-                      <option value="potato">🥔 Картофель (~25 т/га, ~70 тг/кг)</option>
-                      <option value="carrot">🥕 Морковь (~30 т/га, ~65 тг/кг)</option>
-                      <option value="tomato">🍅 Помидоры (~40 т/га, ~120 тг/кг)</option>
-                      <option value="wheat">🌾 Пшеница (~2 т/га, ~90 тг/кг)</option>
-                      <option value="sunflower">🌻 Подсолнечник (~1.5 т/га, ~200 тг/кг)</option>
-                      <option value="beet">🫚 Свёкла (~35 т/га, ~55 тг/кг)</option>
-                      <option value="cabbage">🥬 Капуста (~40 т/га, ~60 тг/кг)</option>
+                      <option value="onion">Лук (~30 т/га, ~80 тг/кг)</option>
+                      <option value="potato">Картофель (~25 т/га, ~70 тг/кг)</option>
+                      <option value="carrot">Морковь (~30 т/га, ~65 тг/кг)</option>
+                      <option value="tomato">Помидоры (~40 т/га, ~120 тг/кг)</option>
+                      <option value="wheat">Пшеница (~2 т/га, ~90 тг/кг)</option>
+                      <option value="sunflower">Подсолнечник (~1.5 т/га, ~200 тг/кг)</option>
+                      <option value="beet">Свёкла (~35 т/га, ~55 тг/кг)</option>
+                      <option value="cabbage">Капуста (~40 т/га, ~60 тг/кг)</option>
                     </select>
                   </div>
                   <div class="ic-grid">
@@ -725,11 +794,11 @@
                   <div class="tax-result-row" style="font-weight:700"><span>Итого налог за полугодие</span><span id="ip-total">—</span></div>
                   <div class="tax-result-row" style="font-weight:700"><span>Итого налог в год</span><span id="ip-year">—</span></div>
                 </div>
-                <p style="font-size:11px;color:var(--text-muted);margin-top:8px">⏰ Декларация 910.00: до 15 февраля и 15 августа</p>
+                <p style="font-size:12px;color:var(--text-muted);margin-top:8px">⏰ Декларация 910.00: до 15 февраля и 15 августа</p>
               </div>
               <!-- Земельный налог ИП -->
               <div class="tax-card">
-                <h4>🌍 Земельный налог для ИП</h4>
+                <h4>Земельный налог для ИП</h4>
                 <div class="tax-sub">Те же ставки по бонитету · Уплата ежеквартально</div>
                 <div class="form-row">
                   <label class="form-label">Площадь (га)</label>
@@ -748,7 +817,7 @@
                   <div class="tax-result-row"><span>Земельный налог в год</span><span id="ip-land-yr">—</span></div>
                   <div class="tax-result-row" style="font-weight:700"><span>Квартальный платёж</span><span id="ip-land-q">—</span></div>
                 </div>
-                <p style="font-size:11px;color:var(--text-muted);margin-top:8px">⏰ Сроки: 25 февраля, 25 мая, 25 августа, 25 ноября</p>
+                <p style="font-size:12px;color:var(--text-muted);margin-top:8px">⏰ Сроки: 25 февраля, 25 мая, 25 августа, 25 ноября</p>
               </div>
             </div>
           </div>
@@ -758,9 +827,9 @@
       <!-- MAP -->
       <div id="section-map" style="display:none">
         <div class="section-header"><div class="section-title">Карта участка</div></div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:60px;text-align:center;color:var(--text-muted)">
-          🗺️<br><br>Интерактивная карта участка появится в полной версии.<br>
-          <span style="font-size:12px">Будет поддержка загрузки спутниковых снимков вашего поля.</span><br><br>
+        <div style="background:#fff;border:1px solid var(--border);padding:60px;text-align:center;color:var(--text-muted)">
+          🗺<br><br>Интерактивная карта участка появится в полной версии.<br>
+          <span style="font-size:13px">Будет поддержка загрузки спутниковых снимков вашего поля.</span><br><br>
           <a href="https://www.google.com/maps/@42.885942,71.3869622,13z" target="_blank" class="btn btn-primary" style="text-decoration:none;display:inline-block">Открыть Google Maps →</a>
         </div>
       </div>
@@ -769,16 +838,16 @@
       <div id="section-settings" style="display:none">
         <div class="section-header"><div class="section-title">Настройки</div></div>
         <div class="table-wrap" style="padding:24px">
-          <p style="font-size:14px;margin-bottom:12px;font-weight:500">Координаты участка</p>
+          <p style="font-size:15px;margin-bottom:12px;font-weight:500">Координаты участка</p>
           <div class="form-row-2">
             <div><label class="form-label">Широта</label><input class="form-input" id="settLat" value="42.9" readonly></div>
             <div><label class="form-label">Долгота</label><input class="form-input" id="settLon" value="71.4" readonly></div>
           </div>
-          <p style="font-size:12px;color:var(--text-muted)">Данные о влажности почвы загружаются по этим координатам через Open-Meteo.</p>
+          <p style="font-size:13px;color:var(--text-muted)">Данные о влажности почвы загружаются по этим координатам через Open-Meteo.</p>
           <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
-            <p style="font-size:14px;margin-bottom:6px;font-weight:500">Общая площадь земли</p>
-            <p id="settHa" style="font-size:22px;font-weight:700;color:var(--green-mid)">—</p>
-            <p style="font-size:12px;color:var(--text-muted)">гектаров</p>
+            <p style="font-size:15px;margin-bottom:6px;font-weight:500">Общая площадь земли</p>
+            <p id="settHa" style="font-size:24px;font-weight:700;color:var(--green-mid)">—</p>
+            <p style="font-size:13px;color:var(--text-muted)">гектаров</p>
           </div>
         </div>
       </div>
@@ -798,7 +867,7 @@
         <p>🔑 Вставьте ваш <b>Groq API ключ</b> чтобы активировать ИИ агронома.<br>
         Получить: <a href="https://console.groq.com/keys" target="_blank" style="color:var(--green-mid)">console.groq.com/keys</a></p>
         <input class="api-input" id="apiKeyInput" type="password" placeholder="gsk_...">
-        <button class="btn btn-primary" style="width:100%;font-size:12px" onclick="saveApiKey()">Подключить ИИ агронома</button>
+        <button class="btn btn-primary" style="width:100%;font-size:13px" onclick="saveApiKey()">Подключить ИИ агронома</button>
       </div>
       <div class="chat-messages" id="chatMessages">
         <div class="msg ai">
@@ -807,10 +876,10 @@
         </div>
       </div>
       <div class="quick-btns">
-        <button class="quick-btn" onclick="quickAsk('Когда лучше полить клетку №22?')">💧 Когда полить №22?</button>
-        <button class="quick-btn" onclick="quickAsk('Какая клетка требует внимания прямо сейчас?')">⚠️ Что срочно?</button>
-        <button class="quick-btn" onclick="quickAsk('Дай рекомендации по удобрению помидоров')">🌱 Удобрения</button>
-        <button class="quick-btn" onclick="quickAsk('Сделай план полива на сегодня для всех клеток')">📅 План на сегодня</button>
+        <button class="quick-btn" onclick="quickAsk('Когда лучше полить клетку №22?')">Когда полить №22?</button>
+        <button class="quick-btn" onclick="quickAsk('Какая клетка требует внимания прямо сейчас?')">Что срочно?</button>
+        <button class="quick-btn" onclick="quickAsk('Дай рекомендации по удобрению помидоров')">Удобрения</button>
+        <button class="quick-btn" onclick="quickAsk('Сделай план полива на сегодня для всех клеток')">План на сегодня</button>
       </div>
       <div class="chat-input-area">
         <textarea class="chat-input" id="chatInput" rows="1" placeholder="Спросите агронома..." onkeydown="handleKey(event)"></textarea>
@@ -826,7 +895,7 @@
     <h3>Добавить клетку</h3>
     <div class="form-row-3">
       <div><label class="form-label">Номер клетки</label><input class="form-input" id="f-num" placeholder="напр. 23"></div>
-      <div><label class="form-label">Культура</label><input class="form-input" id="f-crop" placeholder="напр. Огурцы"></div>
+      <div><label class="form-label">Культура</label><input class="form-input" id="f-crop" placeholder="напр. Огурцы" oninput="updateRecPeriod()"></div>
       <div><label class="form-label">Площадь (га)</label><input class="form-input" id="f-ha" type="number" min="0.1" step="0.1" placeholder="0.0"></div>
     </div>
     <div class="form-row-2">
@@ -836,17 +905,22 @@
     <div class="form-row">
       <label class="form-label">Дата посева — выберите один вариант</label>
       <div class="sowing-toggle">
-        <div class="sowing-tab active" id="stab-actual" onclick="switchSowingTab('actual')">📅 Фактическая дата</div>
-        <div class="sowing-tab" id="stab-plan" onclick="switchSowingTab('plan')">📆 Планируемая дата</div>
+        <div class="sowing-tab active" id="stab-actual" onclick="switchSowingTab('actual')">Фактическая дата</div>
+        <div class="sowing-tab" id="stab-plan" onclick="switchSowingTab('plan')">Планируемая дата</div>
       </div>
       <div class="sowing-panel active" id="spanel-actual">
         <label class="form-label">Дата посева / фактическая</label>
         <input class="form-input" id="f-date-actual" type="date">
       </div>
       <div class="sowing-panel" id="spanel-plan">
-        <div class="rec-period-badge" id="recPeriodBadge">🌱 Введите название культуры выше, чтобы увидеть рекомендуемый период посева</div>
+        <div class="rec-period-badge" id="recPeriodBadge">Введите название культуры выше, чтобы увидеть рекомендуемый период посева</div>
         <label class="form-label">Планируемая дата посева</label>
         <input class="form-input" id="f-date-plan" type="date">
+        <!-- НОВОЕ ПОЛЕ: Рекомендуемая дата -->
+        <div class="rec-date-box" id="recDateBox">
+          <span class="label">Рекомендуемая дата посева:</span>
+          <span class="value" id="recDateValue">—</span>
+        </div>
       </div>
     </div>
     <div class="modal-actions">
@@ -861,28 +935,28 @@
 //  DATA
 // ════════════════════════════════
 const cropEmoji = {
-  'Свёкла':'🫚','Помидоры':'🍅','Морковь':'🥕','Огурцы':'🥒','Укроп':'🌿',
-  'Картофель':'🥔','Картошка':'🥔','Капуста':'🥬','Лук':'🧅','Чеснок':'🧄',
-  'Перец':'🌶️','Баклажаны':'🍆','Кабачки':'🥒','Тыква':'🎃','Пшеница':'🌾','Подсолнечник':'🌻'
+  'Свёкла':'','Помидоры':'','Морковь':'','Огурцы':'','Укроп':'',
+  'Картофель':'','Картошка':'','Капуста':'','Лук':'','Чеснок':'',
+  'Перец':'','Баклажаны':'','Кабачки':'','Тыква':'','Пшеница':'','Подсолнечник':''
 };
 
-// Периоды посева: текст + дни вегетации
+// Периоды посева: текст + дни вегетации + рекомендуемые даты (start, end) для отображения
 const sowingPeriods = {
-  'Свёкла':       { text:'апрель–май',                    days:'50–70 дней' },
-  'Помидоры':     { text:'май (рассада в марте)',         days:'90–120 дней' },
-  'Морковь':      { text:'апрель–май',                    days:'70–90 дней' },
-  'Огурцы':       { text:'май–июнь',                      days:'45–60 дней' },
-  'Укроп':        { text:'апрель–июль',                   days:'30–45 дней' },
-  'Картофель':    { text:'апрель–май',                    days:'70–90 дней' },
-  'Картошка':     { text:'апрель–май',                    days:'70–90 дней' },
-  'Капуста':      { text:'апрель–май (рассада в марте)',  days:'90–120 дней' },
-  'Лук':          { text:'апрель–май',                    days:'80–100 дней' },
-  'Пшеница':      { text:'март–апрель (яровая) / сент–окт (озимая)', days:'90–110 дней' },
-  'Подсолнечник': { text:'май',                           days:'90–110 дней' },
-  'Перец':        { text:'май (рассада в феврале)',        days:'100–130 дней' },
-  'Баклажаны':    { text:'май (рассада в марте)',         days:'100–130 дней' },
-  'Кабачки':      { text:'май–июнь',                      days:'50–65 дней' },
-  'Тыква':        { text:'май–июнь',                      days:'90–120 дней' },
+  'Свёкла':       { text:'апрель–май',                    days:'50–70 дней', start:'04-20', end:'05-15' },
+  'Помидоры':     { text:'май (рассада в марте)',         days:'90–120 дней', start:'05-01', end:'05-20' },
+  'Морковь':      { text:'апрель–май',                    days:'70–90 дней', start:'04-15', end:'05-10' },
+  'Огурцы':       { text:'май–июнь',                      days:'45–60 дней', start:'05-15', end:'06-10' },
+  'Укроп':        { text:'апрель–июль',                   days:'30–45 дней', start:'04-10', end:'07-01' },
+  'Картофель':    { text:'апрель–май',                    days:'70–90 дней', start:'04-20', end:'05-10' },
+  'Картошка':     { text:'апрель–май',                    days:'70–90 дней', start:'04-20', end:'05-10' },
+  'Капуста':      { text:'апрель–май (рассада в марте)',  days:'90–120 дней', start:'04-10', end:'05-01' },
+  'Лук':          { text:'апрель–май',                    days:'80–100 дней', start:'04-20', end:'05-10' },
+  'Пшеница':      { text:'март–апрель (яровая) / сент–окт (озимая)', days:'90–110 дней', start:'03-15', end:'04-20' },
+  'Подсолнечник': { text:'май',                           days:'90–110 дней', start:'05-01', end:'05-20' },
+  'Перец':        { text:'май (рассада в феврале)',        days:'100–130 дней', start:'05-15', end:'05-30' },
+  'Баклажаны':    { text:'май (рассада в марте)',         days:'100–130 дней', start:'05-15', end:'05-30' },
+  'Кабачки':      { text:'май–июнь',                      days:'50–65 дней', start:'05-15', end:'06-10' },
+  'Тыква':        { text:'май–июнь',                      days:'90–120 дней', start:'05-20', end:'06-15' },
 };
 
 const cropCosts = {
@@ -1078,7 +1152,7 @@ function switchGovTab(panel, el) {
 // ════════════════════════════════
 //  BEDS
 // ════════════════════════════════
-function getEmoji(crop) { return cropEmoji[crop] || '🌱'; }
+function getEmoji(crop) { return ''; } // убираем все смайлики
 
 function updateHaDisplay() {
   const used = beds.reduce((s,b) => s + (b.ha || 0), 0);
@@ -1101,27 +1175,26 @@ function renderBeds() {
     if (b.status==='warn') warnCount++;
     if (b.status==='great') greatCount++;
 
-    // Столбец даты: фактическая OR планируемая+период — никогда оба
     let dateCell = '';
     if (b.sowingMode==='actual' && b.dateActual) {
-      dateCell = `<span style="font-size:13px">📅 ${b.dateActual}</span>`;
+      dateCell = `<span style="font-size:14px">📅 ${b.dateActual}</span>`;
     } else if (b.sowingMode==='plan' && b.datePlan) {
       const sp = sowingPeriods[b.crop];
-      const rec = sp ? `<br><span style="font-size:11px;color:var(--text-muted)">Рек: ${sp.text} · ${sp.days}</span>` : '';
-      dateCell = `<span style="font-size:13px;color:#b5451b">📆 план: ${b.datePlan}</span>${rec}`;
+      const rec = sp ? `<br><span style="font-size:12px;color:var(--text-muted)">Рек: ${sp.text} · ${sp.days}</span>` : '';
+      dateCell = `<span style="font-size:14px;color:#b5451b">📆 план: ${b.datePlan}</span>${rec}`;
     } else {
-      dateCell = '<span style="color:var(--text-muted);font-size:12px">—</span>';
+      dateCell = '<span style="color:var(--text-muted);font-size:13px">—</span>';
     }
 
     const haCell = b.ha ? `<b>${b.ha} га</b>` : '—';
 
     tbody.innerHTML += `<tr>
-      <td><span class="bed-num">№${b.id}</span></td>
-      <td><span class="crop-badge">${getEmoji(b.crop)} ${b.crop}</span></td>
-      <td style="font-size:13px">${haCell}</td>
-      <td><div class="moisture-bar"><div class="bar-track"><div class="bar-fill ${cls}" style="width:${pct}%"></div></div><span style="font-size:13px">${pct}%</span></div></td>
-      <td style="font-size:13px;color:var(--text-muted)">${b.weather}</td>
-      <td style="font-size:13px">${dateCell}</td>
+      <td><span class="bed-num">${b.id}</span></td>
+      <td><span class="crop-badge">${b.crop}</span></td>
+      <td style="font-size:14px">${haCell}</td>
+      <td><div class="moisture-bar"><div class="bar-track"><div class="bar-fill ${cls}" style="width:${pct}%"></div></div><span style="font-size:14px">${pct}%</span></div></td>
+      <td style="font-size:14px;color:var(--text-muted)">${b.weather}</td>
+      <td style="font-size:14px">${dateCell}</td>
       <td>${statusMap[b.status]}</td>
       <td><button class="action-btn" onclick="quickAsk('Когда лучше полить клетку №${b.id} с ${b.crop}? Влажность сейчас ${b.moisture}%')">Спросить ИИ</button></td>
     </tr>`;
@@ -1152,11 +1225,19 @@ function switchSowingTab(tab) {
 function updateRecPeriod() {
   const crop = document.getElementById('f-crop').value.trim();
   const badge = document.getElementById('recPeriodBadge');
+  const recDate = document.getElementById('recDateValue');
   if (crop && sowingPeriods[crop]) {
     const sp = sowingPeriods[crop];
-    badge.innerHTML = `🌱 <b>${crop}</b>: сеять в <b>${sp.text}</b><br>⏱ Период вегетации: <b>${sp.days}</b>`;
+    badge.innerHTML = `<b>${crop}</b>: сеять в <b>${sp.text}</b><br>⏱ Период вегетации: <b>${sp.days}</b>`;
+    // Заполняем рекомендуемую дату
+    if (sp.start && sp.end) {
+      recDate.textContent = `${sp.start} – ${sp.end}`;
+    } else {
+      recDate.textContent = sp.text;
+    }
   } else {
-    badge.textContent = '🌱 Введите название культуры выше, чтобы увидеть рекомендуемый период посева';
+    badge.textContent = 'Введите название культуры выше, чтобы увидеть рекомендуемый период посева';
+    recDate.textContent = '—';
   }
 }
 
@@ -1224,7 +1305,7 @@ function calcCosts() {
     }
   }
   const box = document.getElementById('calcResultBox');
-  if (!rows.length) { box.innerHTML='<p style="font-size:13px;color:var(--text-muted);text-align:center">Выберите культуры и площади выше для расчёта</p>'; return; }
+  if (!rows.length) { box.innerHTML='<p style="font-size:14px;color:var(--text-muted);text-align:center">Выберите культуры и площади выше для расчёта</p>'; return; }
   box.innerHTML = rows.map(r=>`<div class="calc-result-row"><span>${r.name} · ${r.area} га</span><span>${r.cost.toLocaleString('ru-RU')} тг</span></div>`).join('')
     + `<div class="calc-result-row"><span>Итого затрат на посев</span><span>${total.toLocaleString('ru-RU')} тг</span></div>`;
   document.getElementById('creditCostInput').value = total;
@@ -1269,8 +1350,8 @@ function calcKhIncome() {
   const price = parseFloat(document.getElementById('kh-price').value);
   const box   = document.getElementById('kh-income-calc');
   if (!ha || !yld || !price) { box.style.display='none'; return; }
-  const gross   = ha * yld;                  // тонн
-  const revenue = Math.round(gross * price * 1000); // тг (цена тг/кг = тг/0.001т)
+  const gross   = ha * yld;
+  const revenue = Math.round(gross * price * 1000);
   box.style.display = 'block';
   document.getElementById('kh-gross').textContent   = gross.toLocaleString('ru-RU') + ' т';
   document.getElementById('kh-revenue').textContent = revenue.toLocaleString('ru-RU') + ' тг';
@@ -1425,7 +1506,6 @@ async function sendMessage() {
 window.onload = () => {
   document.getElementById('pageDate').textContent = new Date().toLocaleDateString('ru-RU',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 
-  // Восстановить из localStorage
   const savedCity = localStorage.getItem('agroai_city');
   const savedHa   = localStorage.getItem('agroai_ha');
   if (savedCity) {
@@ -1448,7 +1528,6 @@ window.onload = () => {
   initApiKey();
   renderBeds();
 
-  // Погода: сначала демо, потом попытка live
   setWeatherDemo();
   loadWeather();
   setInterval(loadWeather, 5 * 60 * 1000);
