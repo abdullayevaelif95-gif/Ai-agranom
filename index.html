@@ -902,6 +902,18 @@
       <div><label class="form-label">Примерная влажность %</label><input class="form-input" id="f-moist" type="number" min="0" max="100" placeholder="0–100"></div>
       <div><label class="form-label">Погода/заметки</label><input class="form-input" id="f-note" placeholder="Солнечно"></div>
     </div>
+
+    <!-- НОВОЕ: блок рекомендуемой даты (всегда видим) -->
+    <div class="form-row">
+      <div class="rec-date-box" id="recDateBox">
+        <span class="label">Рекомендуемая дата посева:</span>
+        <span class="value" id="recDateValue">—</span>
+      </div>
+      <div style="font-size:13px; color:var(--text-muted); margin-top:4px;" id="recPeriodBadge">
+        Введите название культуры, чтобы увидеть рекомендации
+      </div>
+    </div>
+
     <div class="form-row">
       <label class="form-label">Дата посева — выберите один вариант</label>
       <div class="sowing-toggle">
@@ -913,16 +925,11 @@
         <input class="form-input" id="f-date-actual" type="date">
       </div>
       <div class="sowing-panel" id="spanel-plan">
-        <div class="rec-period-badge" id="recPeriodBadge">Введите название культуры выше, чтобы увидеть рекомендуемый период посева</div>
         <label class="form-label">Планируемая дата посева</label>
         <input class="form-input" id="f-date-plan" type="date">
-        <!-- НОВОЕ ПОЛЕ: Рекомендуемая дата -->
-        <div class="rec-date-box" id="recDateBox">
-          <span class="label">Рекомендуемая дата посева:</span>
-          <span class="value" id="recDateValue">—</span>
-        </div>
       </div>
     </div>
+
     <div class="modal-actions">
       <button class="btn btn-ghost" onclick="closeModal()">Отмена</button>
       <button class="btn btn-primary" onclick="addBed()">Добавить</button>
